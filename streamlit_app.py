@@ -8,7 +8,7 @@ import glob
 
 load_dotenv()
 
-st.title("Unknown AI")
+st.title("Mental AI")
 
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
