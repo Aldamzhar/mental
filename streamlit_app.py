@@ -10,7 +10,7 @@ load_dotenv()
 
 st.title("Mental AI")
 
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-4o"
@@ -63,7 +63,7 @@ def get_perplexity_response(prompt):
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "Authorization": "Bearer " + os.getenv('PRPLX_API_KEY')
+        "Authorization": "Bearer " + st.secrets["PRPLX_API_KEY"]
     }
 
     response = requests.post(url, json=payload, headers=headers)
