@@ -38,7 +38,7 @@ def load_chat_history():
             st.session_state.messages = json.load(file)
 
 # Load chat history at the start
-load_chat_history()
+# load_chat_history()
                     
 # Display messages
 for message in st.session_state.messages:
@@ -85,4 +85,4 @@ if prompt := st.chat_input("What is up?"):
         )
         response = st.write_stream(stream)
     st.session_state.messages.append({"role": "assistant", "content": response})
-    save_chat_history()
+    # save_chat_history()
