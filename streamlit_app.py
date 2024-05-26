@@ -79,7 +79,7 @@ if prompt := st.chat_input("What is up?"):
         stream = client.chat.completions.create(
             model=st.session_state["openai_model"],
             messages=[
-                {"role": "system", "content": instruction_txt + " " + perplexity_response}
+                {"role": "system", "content": prompt + " " + instruction_txt + " " + perplexity_response}
             ],
             stream=True,
         )
