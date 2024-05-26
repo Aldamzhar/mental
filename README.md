@@ -1,11 +1,13 @@
 # nFactorial-Ai-Cup-2024
 Fork this repository and build nFactorial Ai Cup 2024 projects 
 
-## < Your Name >
+## Aldamzhar Kiikbayev
 
-## < Your App's Name >
+## Mental AI
 
-## < Your App's description, technical considerations, etc. >
+## AI Therapist
+Built on empathy, expertise and finesse, provides effective counselling to people with different mental problems
+Uses Perplexity AI and OpenAI APIs for efficient and summarized responses
 
 
 ## Typeform to submit:
