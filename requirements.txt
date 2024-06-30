@@ -1,3 +1,5 @@
 openai 
 streamlit
 python-dotenv
+deep_translator
+lingua-language-detector
