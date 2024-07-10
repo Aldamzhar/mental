@@ -13,7 +13,7 @@ detector = LanguageDetectorBuilder.from_languages(*languages).build()
 
 st.title("Mental")
 
-st.subheader("Your AI therapist. 24/7. No data and history chat recorded")
+st.subheader("Your friendly AI companion. 24/7. No data and history chat recorded")
 
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
