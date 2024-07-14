@@ -26,7 +26,7 @@ def load_instructions(file_path):
     with open(file_path, "r") as file:
         return file.read()
 
-instruction_txt = load_instructions("instructions.txt")
+instruction_txt = st.secrets['INSTRUCTIONS']
 
 def num_tokens_from_messages(messages):
     return sum([len(message['content'].split()) for message in messages])
