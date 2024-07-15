@@ -62,6 +62,7 @@ if prompt := st.chat_input("What is up?"):
             if content: 
                 response_content += content
 
+
         pattern = r'^[^\w.!?]+|[^\w.!?]+$'
         cleaned_string = re.sub(pattern, '', response_content)
         # cleaned_string_translation = GoogleTranslator(source='en', target=language.iso_code_639_1.name.lower()).translate(cleaned_string)
