@@ -1,6 +1,8 @@
 from openai import OpenAI
 import streamlit as st
 import os
+import requests
+import json
 from dotenv import load_dotenv
 import re
 from deep_translator import GoogleTranslator
@@ -25,6 +27,30 @@ if "messages" not in st.session_state:
 def load_instructions(file_path):
     with open(file_path, "r") as file:
         return file.read()
+    
+def get_perplexity_response(prompt):
+    url = "https://api.perplexity.ai/chat/completions"
+    payload = {
+        "model": "llama-3-sonar-small-32k-chat",
+        "messages": [
+            {
+                "role": "system",
+                "content": ""
+            },
+            {
+                "role": "user",
+                "content": prompt + " Search on the matter of the question and provide titles of the credible sources where you find your information below the body of the answer"
+            }
+        ]
+    }
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "Authorization": "Bearer " + st.secrets["PRPLX_API_KEY"]
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    return json.loads(response.text)['choices'][0]['message']['content']     
 
 instruction_txt = st.secrets['INSTRUCTIONS']
 
@@ -46,6 +72,7 @@ if prompt := st.chat_input("What is up?"):
     context = [{"role": "system", "content": instruction_txt}]
 
     for msg in st.session_state.messages:
+        # perplexity_response = get_perplexity_response(prompt)
         context.append({"role": msg["role"], "content": msg["content"]})
         if num_tokens_from_messages(context) > 8192:
             context.pop(1)  
